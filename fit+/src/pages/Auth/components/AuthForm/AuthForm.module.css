@@ -1,0 +1,24 @@
+.wrapperInput {
+  width: 440px;
+  height: 50px;
+}
+
+.wrapperAuthForm {
+  width: 440px;
+  margin: 0 auto;
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+  width: 440px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.authForm__help {
+  color: var(--color-white);
+  text-align: center;
+}

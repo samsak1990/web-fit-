@@ -1,0 +1,20 @@
+.textLink {
+  display: inline-block;
+  font-weight: 400;
+  color: var(--color-green);
+  text-decoration: underline;
+  transition: color 0.2s ease-in-out;
+}
+
+.textLink:hover {
+  color: #e9ff6e;
+}
+.textLink:hover {
+  color: #e9ff6e;
+}
+.textLink:active {
+  color: #b6d800;
+}
+.textLink.inactive {
+  color: rgba(108, 108, 108, 0.2);
+}

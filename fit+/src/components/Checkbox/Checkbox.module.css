@@ -1,0 +1,28 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+  user-select: none;
+}
+
+.box {
+  width: 17px;
+  height: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s ease;
+  border: 2px solid gray;
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+.checkedBox {
+  border: none;
+  background-color: #d1f702;
+}
+
+.label {
+  color: var(--color-white);
+}

@@ -1,0 +1,21 @@
+.buttonMain {
+  width: 100%;
+  padding: 13px 192px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: var(--color-green);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.buttonMain:hover {
+  background-color: #e9ff6e;
+}
+
+.buttonMain:active {
+  background-color: #b6d800;
+}
+
+.buttonMain:disabled {
+  background-color: rgba(108, 108, 108, 0.6);
+  color: rgba(108, 108, 108, 0.5);
+}

@@ -1,0 +1,13 @@
+.logo {
+  width: 100%;
+  text-align: center;
+  height: 92px;
+  margin-bottom: 50px;
+}
+
+.logo__image {
+  display: inline-block;
+  width: 197px;
+  height: 100%;
+  object-fit: contain;
+}
