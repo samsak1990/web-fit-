@@ -1,0 +1,14 @@
+.block {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: var(--color-white);
+    border-radius: 10px;
+    margin: 0 auto;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+}
+
+.block.direction_column {
+    flex-direction: column;
+}

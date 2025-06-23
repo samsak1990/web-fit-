@@ -7,9 +7,9 @@ import {
 } from 'react-router-dom';
 import Auth from './pages/Auth/Auth';
 import Main from './pages/Main';
+import Analitic from './pages/Analitic/Analitic';
 
 // Временные заглушки для отсутствующих страниц
-const Analitic = () => <div>Analitic Page (заглушка)</div>;
 const Payments = () => <div>Payments Page (заглушка)</div>;
 
 function App() {

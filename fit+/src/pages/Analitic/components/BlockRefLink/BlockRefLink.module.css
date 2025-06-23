@@ -1,0 +1,60 @@
+.blockRefLinkRow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.blockRefLink {
+    display: block;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.blockRefLink>span {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 15px;
+}
+
+.blockRefLink__copy {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url('../../../../assets/icons/document-copy.svg') no-repeat center/contain;
+    opacity: 0.5;
+    transition: opacity 0.2s ease-in;
+    margin-left: auto;
+}
+
+.blockRefLink__copy:hover {
+    opacity: 1;
+}
+
+.blockRefLinkRow {
+    width: 100%;
+}
+
+.copiedTooltip {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #222;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    animation: fadeInTooltip 0.2s forwards;
+    z-index: 10;
+}
+
+@keyframes fadeInTooltip {
+    to {
+        opacity: 1;
+    }
+}

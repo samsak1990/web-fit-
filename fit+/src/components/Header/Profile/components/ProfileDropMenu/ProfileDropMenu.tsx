@@ -12,7 +12,7 @@ export default function ProfileDropMenu({ navList, isOpen }: ProfileDropMenuProp
     return (
         <div className={isOpen ? `${styles.dropMenu} ${styles.open}` : styles.dropMenu}>
             {navList.map(item => {
-                return <p className={styles.dropMenu__link}>
+                return <p className={styles.dropMenu__link} key={item.title}>
                     <img src={item.icon} alt="Иконка" />
                     <NavLink to={item.path}>
                         {item.title}

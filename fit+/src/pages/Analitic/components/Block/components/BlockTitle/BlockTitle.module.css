@@ -1,0 +1,9 @@
+.blockTitle {
+    display: inline-block;
+    color: inherit;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    text-align: left;
+    font-family: 'Unbounded', sans-serif;
+}
