@@ -24,10 +24,10 @@
     width: 12px;
     height: 12px;
     background: url('../../../assets/arrows-control/arrow-left-inactive.svg') no-repeat center/contain;
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .profile__buttonOpen.open {
-    transform: rotate(270deg);
+    transform: rotate(90deg);
 }

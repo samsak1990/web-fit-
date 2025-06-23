@@ -1,0 +1,48 @@
+.blockUsers__controlsRow_center {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.center__left,
+.center__right {
+    width: 20px;
+    height: 20px;
+    transition: background 0.2s ease-in-out;
+}
+
+.center__left {
+    margin-right: 36px;
+    background: url('../../../../../../assets/arrows-control/arrow-left-inactive.svg') no-repeat center/contain;
+}
+
+.center__left:hover {
+    background: url('../../../../../../assets/arrows-control/arrow-left.svg') no-repeat center/contain;
+}
+
+.center__period {
+    min-width: 160px;
+    width: 160px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.center__period_start {}
+
+.center__period_end {}
+
+.center__right {
+    margin-left: 36px;
+    background: url('../../../../../../assets/arrows-control/arrow-right-inactive.svg') no-repeat center/contain;
+}
+
+.center__right:hover {
+    background: url('../../../../../../assets/arrows-control/arrow-right.svg') no-repeat center/contain;
+}
