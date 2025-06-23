@@ -1,0 +1,48 @@
+.dropMenu {
+    position: absolute;
+    left: 0;
+    top: 115%;
+    padding: 15px;
+    min-width: 220px;
+    border-radius: 10px;
+    background: var(--color-white);
+    box-shadow: 0 0 12px rgba(0, 0, 0, .15);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.dropMenu::before {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 5px;
+    height: 5px;
+    background: var(--color-white);
+    z-index: 80;
+    transform: rotate(45deg);
+    top: -2px;
+    left: 13px;
+}
+
+.dropMenu__link {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.dropMenu__link:not(:last-child) {
+    border-bottom: 1px solid var(--grey02);
+}

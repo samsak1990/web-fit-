@@ -1,0 +1,9 @@
+.wrapperInnerContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 40px;
+    width: 100%;
+}

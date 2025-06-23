@@ -2,7 +2,7 @@
   --color-white: #ffffff;
   --color-grey: #f4f4f4;
   --color-dark: #212121;
-  --color-indogo: #5945fe;
+  --color-indigo: #5945fe;
   --color-green: #d1f702;
   --color-blue: #00a0e3;
   --color-pink: #e3b5ff;
@@ -12,6 +12,9 @@
   --color-light-pink: #fcf8ff;
 
   --grey: rgba(108, 108, 108, 0.5);
+  --grey02: rgba(108, 108, 108, 0.2);
+
+  --color-bg-content: #f4f4f4;
 }
 
 /* modern-css-reset.css */

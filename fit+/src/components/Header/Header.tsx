@@ -1,12 +1,22 @@
 import React from 'react';
 import styles from './Header.module.css';
+import WrapperInnerContent from '../WrapperInnerContent/WrapperInnerContent';
+import Profile from './Profile/Profile';
+import HeaderMenu from './HeaderMenu/HeaderMenu';
+import Account from './Account/Account';
+import { HEADER_NAV_LIST } from '../../constants/headerMenuList';
 
-type THeaderProps = {};
 
-const Header: React.FC<THeaderProps> = ({}) => {
-  return <header className={styles.header}>
-    fwefew
-  </header>;
+const Header: React.FC = () => {
+  return (
+    <header className={styles.header}>
+      <WrapperInnerContent>
+        <Profile userName='Pavel' />
+        <HeaderMenu navList={HEADER_NAV_LIST} />
+        <Account sum={250000} people={345} />
+      </WrapperInnerContent>
+    </header>
+  )
 };
 
 export default Header;

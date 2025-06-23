@@ -1,4 +1,5 @@
 .auth {
+  position: relative;
   display: grid;
   align-items: center;
   background-color: var(--color-dark);
@@ -8,12 +9,16 @@
 }
 
 .auth__greeting {
+  position: absolute;
   text-align: center;
   color: rgb(209, 247, 2, 60%);
   font-size: 20px;
   line-height: 1.5;
+  bottom: 20px;
+  width: 100%;
 }
 
-.auth__greeting > p:nth-child(2) {
+.auth__greeting>p:nth-child(2) {
+
   font-size: 15px;
 }

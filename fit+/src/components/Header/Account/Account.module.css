@@ -1,0 +1,35 @@
+.account {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    justify-content: space-between;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+
+}
+
+.account__summ,
+.account__people {
+    position: relative;
+    height: 20px;
+    line-height: 20px;
+}
+
+.account__summ::before,
+.account__people::before {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    left: -25px;
+}
+
+.account__summ::before {
+    background: url('../../../assets/icons/coin.svg') no-repeat center/contain;
+}
+
+.account__people::before {
+    background: url('../../../assets/icons/tag-user.svg') no-repeat center/contain;
+}

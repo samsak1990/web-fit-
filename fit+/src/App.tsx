@@ -6,7 +6,7 @@ import {
   Navigate,
 } from 'react-router-dom';
 import Auth from './pages/Auth/Auth';
-import Main from './components/Main';
+import Main from './pages/Main';
 
 // Временные заглушки для отсутствующих страниц
 const Analitic = () => <div>Analitic Page (заглушка)</div>;
@@ -16,9 +16,9 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/auth" element={<Auth />} />
+        <Route path="/" element={<Auth />} />
         <Route path="/" element={<Main />}>
-          <Route path="analitic" element={<Analitic />} />
+          <Route index path="analitic" element={<Analitic />} />
           <Route path="payments" element={<Payments />} />
         </Route>
         <Route path="*" element={<Navigate to="/auth" replace />} />

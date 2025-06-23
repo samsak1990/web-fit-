@@ -1,16 +1,17 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from './Header/Header';
-import WrapperContent from './WrapperContent/WrapperContent';
+// import styles from './Main.module.css'
+import Header from '../components/Header/Header';
+import WrapperContent from '../components/WrapperContent/WrapperContent';
 
 
 const Main: React.FC = () => {
   return (
     <WrapperContent>
       <Header />
-      <main style={{flex: 1}}>
+      <main style={{ flex: 1 }}>
         <Outlet />
-        </main>
+      </main>
       {/* <Footer /> */}
     </WrapperContent>
   );
