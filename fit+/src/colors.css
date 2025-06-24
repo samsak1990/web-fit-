@@ -1,0 +1,6 @@
+:root {
+    --gray-border: rgba(108, 108, 108, 0.2);
+    --gray-background: rgba(108, 108, 108, 0.05);
+
+    --red-error: rgba(255, 72, 72, 1);
+}

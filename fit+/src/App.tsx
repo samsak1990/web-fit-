@@ -8,9 +8,10 @@ import {
 import Auth from './pages/Auth/Auth';
 import Main from './pages/Main';
 import Analitic from './pages/Analitic/Analitic';
+import Payments from './pages/Payments/Payments';
 
 // Временные заглушки для отсутствующих страниц
-const Payments = () => <div>Payments Page (заглушка)</div>;
+// const Payments = () => <div>Payments Page (заглушка)</div>;
 
 function App() {
   return (
