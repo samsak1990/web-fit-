@@ -1,3 +1,4 @@
+import DownloadTableButton from "../../components/Buttons/DownloadTable/DownloadTableButton";
 import Input from "../../components/Input/Input";
 import WrapperInnerContent from "../../components/WrapperInnerContent/WrapperInnerContent";
 import Block from "../Analitic/components/Block/Block";
@@ -9,16 +10,17 @@ const Payments: React.FC = () => {
         <>
             <WrapperInnerContent>
                 <Block direction="column">
-                    <BlockTitle title="Запрос выплаты"/>
-                    <Input placeholder="123" value="" setValue={()=>{}} />
-                    <Input placeholder="123" value="456" setValue={()=>{}} />
-                    <Input placeholder="123" value="456" setValue={()=>{}} error="232" />
-                    <Input placeholder="123" value="" setValue={()=>{}} error="232" />
-                    <Input placeholder="123" value="" setValue={()=>{}} secret={true} />
-                    <Input placeholder="123" value="123" setValue={()=>{}} secret={true} />
+                    <BlockTitle title="Запрос выплаты" />
+                    <Input placeholder="123" value="" setValue={() => { }} />
+                    <Input placeholder="123" value="456" setValue={() => { }} />
+                    <Input placeholder="123" value="456" setValue={() => { }} error="232" />
+                    <Input placeholder="123" value="" setValue={() => { }} error="232" />
+                    <Input placeholder="123" value="" setValue={() => { }} secret={true} />
+                    <Input placeholder="123" value="123" setValue={() => { }} secret={true} />
+                    <DownloadTableButton  action={() => { }} />
                 </Block>
                 <Block>
-                    <BlockTitle title="Запрос выплаты"/>
+                    <BlockTitle title="Запрос выплаты" />
                 </Block>
             </WrapperInnerContent>
         </>
