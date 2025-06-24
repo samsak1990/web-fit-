@@ -4,6 +4,7 @@ import BlockTitle from '../Block/components/BlockTitle/BlockTitle'
 import CenterControl from './components/CenterControl/CenterControl'
 import RightControl from './components/RightControl/RightControl'
 import Graph from './components/Graph/Graph'
+import { getAllDays, getHours } from './utils/dataUtils'
 
 const periodOptions = ['День', 'Неделя', 'Месяц'];
 const months = [
@@ -12,46 +13,18 @@ const months = [
 ];
 const WEEKDAYS = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
 
-// Генерируем данные для июня 2024
-// const allDays = Array.from({ length: 30 }, (_, i) => {
-//   const day = i + 1;
-//   const value = Math.floor(Math.random() * 100);
-//   const date = new Date(2024, 5, day); // июнь
-//   const weekday = WEEKDAYS[date.getDay()];
-//   return { name: String(day), value, weekday, date };
-// });
-
 const BlockUsers: React.FC = () => {
     const [period, setPeriod] = useState(2); // 0-день, 1-неделя, 2-месяц
     const [currentDate, setCurrentDate] = useState(new Date(2025, 5, 1));
 
-    // СНАЧАЛА объявляем allDays!
-    const allDays = useMemo(() => {
-        const year = currentDate.getFullYear();
-        const month = currentDate.getMonth();
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
-        return Array.from({ length: daysInMonth }, (_, i) => {
-            const day = i + 1;
-            const value = Math.floor(Math.random() * 100);
-            const date = new Date(year, month, day);
-            const weekday = WEEKDAYS[date.getDay()];
-            return { name: String(day), value, weekday, date };
-        });
-    }, [currentDate]);
+    const allDays = useMemo(
+        () => getAllDays(currentDate.getFullYear(), currentDate.getMonth()),
+        [currentDate]
+    );
 
-    // ПОТОМ используем allDays
     const graphData = useMemo(() => {
-        if (period === 0) {
-            // День: 24 часа
-            const hours = Array.from({ length: 24 }, (_, h) => {
-                // Для примера: значения случайные
-                const value = Math.floor(Math.random() * 100);
-                return { name: String(h), value, hour: h };
-            });
-            return hours;
-        }
+        if (period === 0) return getHours();
         if (period === 1) {
-            // Неделя
             const startOfWeek = new Date(currentDate);
             startOfWeek.setDate(currentDate.getDate() - currentDate.getDay());
             return Array.from({ length: 7 }, (_, i) => {
@@ -61,67 +34,38 @@ const BlockUsers: React.FC = () => {
                 return found || { name: String(d.getDate()), value: 0, weekday: WEEKDAYS[d.getDay()], date: d };
             });
         }
-        // Месяц
         return allDays;
     }, [period, currentDate, allDays]);
 
-    // Логика для CenterControl
     const { start, end, onPrev, onNext } = useMemo(() => {
         const date = new Date(currentDate);
-        if (period === 0) { // День
+        if (period === 0) {
             const dayStr = `${date.getDate()} ${months[date.getMonth()]}`;
             return {
                 start: dayStr,
                 end: '',
-                onPrev: () => setCurrentDate(prev => {
-                    const newDate = new Date(prev);
-                    newDate.setDate(newDate.getDate() - 1);
-                    return newDate;
-                }),
-                onNext: () => setCurrentDate(prev => {
-                    const newDate = new Date(prev);
-                    newDate.setDate(newDate.getDate() + 1);
-                    return newDate;
-                })
+                onPrev: () => setCurrentDate(prev => new Date(prev.setDate(prev.getDate() - 1))),
+                onNext: () => setCurrentDate(prev => new Date(prev.setDate(prev.getDate() + 1)))
             };
         }
-        if (period === 1) { // Неделя
+        if (period === 1) {
             const startOfWeek = new Date(date);
             startOfWeek.setDate(date.getDate() - date.getDay());
             const endOfWeek = new Date(startOfWeek);
             endOfWeek.setDate(startOfWeek.getDate() + 6);
-            const startStr = `${startOfWeek.getDate()} ${months[startOfWeek.getMonth()]}`;
-            const endStr = `${endOfWeek.getDate()} ${months[endOfWeek.getMonth()]}`;
             return {
-                start: startStr,
-                end: endStr,
-                onPrev: () => setCurrentDate(prev => {
-                    const newDate = new Date(prev);
-                    newDate.setDate(newDate.getDate() - 7);
-                    return newDate;
-                }),
-                onNext: () => setCurrentDate(prev => {
-                    const newDate = new Date(prev);
-                    newDate.setDate(newDate.getDate() + 7);
-                    return newDate;
-                })
+                start: `${startOfWeek.getDate()} ${months[startOfWeek.getMonth()]}`,
+                end: `${endOfWeek.getDate()} ${months[endOfWeek.getMonth()]}`,
+                onPrev: () => setCurrentDate(prev => new Date(prev.setDate(prev.getDate() - 7))),
+                onNext: () => setCurrentDate(prev => new Date(prev.setDate(prev.getDate() + 7)))
             };
         }
-        // Месяц
         const monthName = months[date.getMonth()][0].toUpperCase() + months[date.getMonth()].slice(1);
         return {
             start: monthName,
             end: '',
-            onPrev: () => setCurrentDate(prev => {
-                const newDate = new Date(prev);
-                newDate.setMonth(newDate.getMonth() - 1);
-                return newDate;
-            }),
-            onNext: () => setCurrentDate(prev => {
-                const newDate = new Date(prev);
-                newDate.setMonth(newDate.getMonth() + 1);
-                return newDate;
-            })
+            onPrev: () => setCurrentDate(prev => new Date(prev.setMonth(prev.getMonth() - 1))),
+            onNext: () => setCurrentDate(prev => new Date(prev.setMonth(prev.getMonth() + 1)))
         };
     }, [period, currentDate]);
 

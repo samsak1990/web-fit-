@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import CustomBarShape from './components/CustomBarShape/CustomBarShape';
 import CustomTooltip from './components/CustomTooltip/CustomTooltip';
@@ -17,9 +17,6 @@ const data = Array.from({ length: 31 }, (_, i) => {
   return { name: String(day), value, weekday };
 });
 
-const MAX_VALUE = 100;
-const BAR_SIZE = 32;
-
 interface GraphDataItem {
   name: string;
   value: number;
@@ -32,8 +29,17 @@ interface GraphProps {
   data: GraphDataItem[];
 }
 
+const BAR_SIZE = 28;
+
 const Graph: React.FC<GraphProps> = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  // MAX_VALUE определяется динамически
+  const MAX_VALUE = useMemo(() => {
+    if (!data.length) return 100;
+    const max = Math.max(...data.map(d => d.value));
+    return Math.ceil(max / 10) * 10;
+  }, [data]);
 
   return (
     <div className={styles.graphWrapper}>
