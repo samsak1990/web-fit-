@@ -1,0 +1,13 @@
+.payments{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: antiquewhite;
+}
+
+.payments__panel{
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+
+}
