@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './SortArrows.module.css'
 
 type TSortArrowsProps = {
-    sort: 'asc' | 'desc'
+    sort?: 'asc' | 'desc'
 }
 
 const SortArrows: React.FC<TSortArrowsProps> = ({sort}) => {

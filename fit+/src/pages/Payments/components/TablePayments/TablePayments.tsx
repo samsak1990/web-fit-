@@ -4,23 +4,29 @@ import type { TRow } from '../../Payments';
 import SortArrows from './SortArrows/SortArrows';
 
 
-type SortBy = 'date' | 'amount' | 'status';
-type SortDir = 'asc' | 'desc';
+type SortBy = 'date' | 'amount' | 'status' | null;
+type SortDir = 'asc' | 'desc' | null;
 
 const TablePayments: React.FC<{ data: TRow[] }> = ({ data }) => {
-  const [sortBy, setSortBy] = useState<SortBy>('date');
-  const [sortDir, setSortDir] = useState<SortDir>('asc');
+  const [sortBy, setSortBy] = useState<SortBy>(null);
+  const [sortDir, setSortDir] = useState<SortDir>(null);
 
-  const handleSort = (column: SortBy) => {
-    if (sortBy === column) {
-      setSortDir(dir => (dir === 'asc' ? 'desc' : 'asc'));
-    } else {
+  const handleSort = (column: Exclude<SortBy, null>) => {
+    if (sortBy !== column) {
       setSortBy(column);
+      setSortDir('asc');
+    } else if (sortDir === 'asc') {
+      setSortDir('desc');
+    } else if (sortDir === 'desc') {
+      setSortBy(null);
+      setSortDir(null);
+    } else {
       setSortDir('asc');
     }
   };
 
   const sortedData = useMemo(() => {
+    if (!sortBy || !sortDir) return data;
     const sorted = [...data].sort((a, b) => {
       let aValue = a[sortBy];
       let bValue = b[sortBy];
@@ -53,13 +59,13 @@ const TablePayments: React.FC<{ data: TRow[] }> = ({ data }) => {
       <thead>
         <tr>
           <th onClick={() => handleSort('date')}>
-            Дата <SortArrows sort={sortBy === 'date' ? sortDir : undefined} />
+            Дата <SortArrows sort={sortBy === 'date' ? (sortDir as 'asc' | 'desc' | undefined) : undefined} />
           </th>
           <th onClick={() => handleSort('amount')}>
-            Сумма <SortArrows sort={sortBy === 'amount' ? sortDir : undefined} />
+            Сумма <SortArrows sort={sortBy === 'amount' ? (sortDir as 'asc' | 'desc' | undefined) : undefined} />
           </th>
           <th onClick={() => handleSort('status')}>
-            Статус <SortArrows sort={sortBy === 'status' ? sortDir : undefined} />
+            Статус <SortArrows sort={sortBy === 'status' ? (sortDir as 'asc' | 'desc' | undefined) : undefined} />
           </th>
         </tr>
       </thead>
