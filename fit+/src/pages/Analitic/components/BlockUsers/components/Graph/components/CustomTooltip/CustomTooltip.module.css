@@ -1,0 +1,39 @@
+.tooltip {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 10px 16px 10px 16px;
+  font-size: 15px;
+  color: #222;
+  min-width: 140px;
+  pointer-events: none;
+  border: none;
+}
+
+.tooltipLabel {
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 2px;
+}
+
+.tooltipValueRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tooltipDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d6ff00;
+  display: inline-block;
+}
+
+.tooltipValue {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+  margin-left: 2px;
+} 

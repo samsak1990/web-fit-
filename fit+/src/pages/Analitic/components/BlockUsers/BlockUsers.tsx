@@ -3,6 +3,7 @@ import styles from './BlockUsers.module.css'
 import BlockTitle from '../Block/components/BlockTitle/BlockTitle'
 import CenterControl from './components/CenterControl/CenterControl'
 import RightControl from './components/RightControl/RightControl'
+import Graph from './components/Graph/Graph'
 
 const periodOptions = ['День', 'Неделя', 'Месяц'];
 const months = [
@@ -91,7 +92,9 @@ const BlockUsers: React.FC = () => {
                 />
                 <RightControl value={period} onChange={setPeriod} options={periodOptions} />
             </div>
-            <div className={styles.blockUsers__graphs}>ГРАФЫ</div>
+            <div className={styles.blockUsers__graphs}>
+                <Graph/>
+            </div>
         </div>
     )
 }
