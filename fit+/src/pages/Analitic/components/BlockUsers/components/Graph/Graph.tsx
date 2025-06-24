@@ -20,12 +20,24 @@ const data = Array.from({ length: 31 }, (_, i) => {
 const MAX_VALUE = 100;
 const BAR_SIZE = 32;
 
-const Graph: React.FC = () => {
+interface GraphDataItem {
+  name: string;
+  value: number;
+  hour?: number;
+  weekday?: string;
+  date?: Date;
+}
+
+interface GraphProps {
+  data: GraphDataItem[];
+}
+
+const Graph: React.FC<GraphProps> = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
     <div className={styles.graphWrapper}>
-      <ResponsiveContainer width="100%" height={220}>
+      <ResponsiveContainer width="100%" height={244}>
         <BarChart
           data={data}
           barCategoryGap={10}
