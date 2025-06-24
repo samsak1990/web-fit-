@@ -8,12 +8,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+}
+
+.graphWrapper svg:focus {
+  border: none;
+  outline: none;
 }
 
 .tooltip {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   padding: 10px 16px 10px 16px;
   font-size: 15px;
   color: #222;
@@ -50,4 +56,4 @@
   margin-left: 2px;
 }
 
-/* Можно добавить стили для кастомизации тултипа, если потребуется */ 
+/* Можно добавить стили для кастомизации тултипа, если потребуется */
