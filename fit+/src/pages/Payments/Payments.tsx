@@ -1,3 +1,5 @@
+
+import DownloadTableButton from "../../components/Buttons/DownloadTable/DownloadTableButton";
 import ButtonMain from "../../components/Buttons/ButtonMain/ButtonMain";
 import Input from "../../components/Input/Input";
 import WrapperInnerContent from "../../components/WrapperInnerContent/WrapperInnerContent";
