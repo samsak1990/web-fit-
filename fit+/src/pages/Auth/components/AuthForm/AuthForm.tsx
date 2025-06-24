@@ -24,10 +24,10 @@ const AuthForm: React.FC = () => {
       <Logo image={LogoImage} />
       <form onSubmit={handlerAuthorisation} className={styles.authForm}>
         <WrapperInput>
-          <Input placeholder="Логин" />
+          <Input placeholder="Логин" value="123" setValue={()=>{}} error={''} noStyle={true}/>
         </WrapperInput>
         <WrapperInput>
-          <Input placeholder="Пароль" />
+          <Input placeholder="Пароль" value="123" setValue={()=>{}} secret={true}  error={''} noStyle={true}/>
         </WrapperInput>
         <WrapperInput>
           <CustomCheckbox

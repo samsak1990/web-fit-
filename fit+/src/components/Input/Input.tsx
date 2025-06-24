@@ -7,9 +7,10 @@ type TInputProps = {
   setValue(value: string): void;
   error?: string;
   secret?: boolean;
+  noStyle?: boolean;
 };
 
-const Input: React.FC<TInputProps> = ({ placeholder, value, setValue, error = "", secret = false }) => {
+const Input: React.FC<TInputProps> = ({ placeholder, value, setValue, error = "", secret = false, noStyle = false }) => {
 
   const [open, setOpen] = React.useState<boolean>(false);
 
@@ -28,7 +29,7 @@ const Input: React.FC<TInputProps> = ({ placeholder, value, setValue, error = ""
   return (
     <div className={styles.input__wrapper}>
       <input
-        className={styles.input + (error === "" ? "" : " " + styles.input_error)}
+        className={styles.input + (error === "" ? "" : " " + styles.input_error) + (noStyle ? " " + styles.input_noStyle : "")}
         placeholder={placeholder}
         value={value}
         onChange={e => setValue(e.target.value)}
