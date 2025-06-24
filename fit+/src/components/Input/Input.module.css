@@ -14,12 +14,23 @@
   font-weight: 400;
 }
 
+
+.input:focus {
+  background-color: var(--grey005);
+}
+
 .input:focus-visible {
-  background-color: var(--gray-background);
+  background-color: var(--grey-background);
 }
 
 .input_error {
   border-color: var(--red-error);
+}
+
+
+.input.input_noStyle:focus,
+.input.input_noStyle:focus-visible{
+  background-color: #ffffff;
 }
 
 .error {

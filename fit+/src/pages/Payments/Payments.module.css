@@ -1,8 +1,7 @@
-.payments{
+.wrapperPayments{
     display: flex;
     height: 100%;
     width: 100%;
-    background-color: antiquewhite;
 }
 
 .payments__panel{
@@ -10,4 +9,14 @@
     flex-grow: 1;
     height: 100%;
 
+}
+
+.formPayments{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.formPayments>button{
+    margin-top: 10px;
 }

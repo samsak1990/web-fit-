@@ -1,0 +1,62 @@
+.tableWrapper {
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0;
+  margin-top: 20px;
+}
+
+.tablePayments {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: inherit;
+  background: #fff;
+}
+
+.tablePayments thead th {
+  background: #f7f6ff;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #ececf6;
+  font-family: 'Unbounded', sans-serif;
+  cursor: pointer;
+}
+
+.tablePayments tbody td {
+  font-size: 18px;
+  text-align: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #ececf6;
+}
+
+.statusCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.statusIcon {
+  font-size: 18px;
+  margin-right: 4px;
+}
+
+.statusDone {
+  background: url('../../../../assets/icon_done.svg') no-repeat center center;
+}
+.statusPending {
+  background: url('../../../../assets/icon_wait.svg') no-repeat center center;
+}
+.statusCreated {
+  background: url('../../../../assets/icon_created.svg') no-repeat center center;
+} 
+
+.statusCell__icon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
