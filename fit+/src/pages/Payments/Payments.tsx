@@ -3,8 +3,8 @@ import DownloadTableButton from "../../components/Buttons/DownloadTable/Download
 import ButtonMain from "../../components/Buttons/ButtonMain/ButtonMain";
 import Input from "../../components/Input/Input";
 import WrapperInnerContent from "../../components/WrapperInnerContent/WrapperInnerContent";
-import Block from "../Analitic/components/Block/Block";
-import BlockTitle from "../Analitic/components/Block/components/BlockTitle/BlockTitle";
+import Block from "../../components/Block/Block";
+import BlockTitle from "../../components/Block/components/BlockTitle/BlockTitle";
 import TablePayments from "./components/TablePayments/TablePayments";
 import styles from "./Payments.module.css";
 

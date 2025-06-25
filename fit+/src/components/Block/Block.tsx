@@ -9,7 +9,14 @@ type TBlockProps = {
 
 const Block: React.FC<TBlockProps> = ({ children, direction = 'row' }) => {
     return (
-        <div className={`${styles.block} ${direction !== 'row' ? styles.direction_column : null}`}>{children}</div>
+        <div 
+            className={`${styles.block} ${direction !== 'row' ? styles.direction_column : null}`}
+            style={{
+                flexDirection: direction === 'row' ? 'row' : 'column',
+            }}
+        >
+            {children}
+        </div>
     )
 }
 

@@ -1,0 +1,13 @@
+.blockGeneralTabel {
+  width: 100%;
+  /* height: 100%; */
+}
+
+.blockGeneralTabel__header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
