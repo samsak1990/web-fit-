@@ -1,22 +1,23 @@
-.wrapperPayments{
+.wrapperPayments {
     display: flex;
     height: 100%;
     width: 100%;
 }
 
-.payments__panel{
+.payments__panel {
     display: flex;
     flex-grow: 1;
     height: 100%;
 
 }
 
-.formPayments{
+.formPayments {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     width: 100%;
 }
-.formPayments>button{
+
+.formPayments>button {
     margin-top: 10px;
 }

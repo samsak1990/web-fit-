@@ -57,22 +57,22 @@ const TabelGeneral: React.FC<TTabelGeneralProps> = ({ data }) => {
       <table className={styles.tableGeneral}>
         <thead>
           <tr>
-            <th onClick={() => handleSort('id')}>
-              ID <SortArrows sort={sortBy === 'id' ? (sortDir as 'asc' | 'desc' | undefined) : undefined} />
+            <th>
+              ID
             </th>
-            <th onClick={() => handleSort('name')}>
-              Имя <SortArrows sort={sortBy === 'name' ? (sortDir as 'asc' | 'desc' | undefined) : undefined} />
+            <th>
+              Имя
             </th>
-            <th onClick={() => handleSort('loginDate')}>
-              Дата входа <SortArrows sort={sortBy === 'loginDate' ? (sortDir as 'asc' | 'desc' | undefined) : undefined} />
+            <th>
+              Дата входа
             </th>
-            <th onClick={() => handleSort('paymentDate')}>
+            <th onClick={() => handleSort('paymentDate')} style={{ cursor: 'pointer' }}>
               Дата оплаты <SortArrows sort={sortBy === 'paymentDate' ? (sortDir as 'asc' | 'desc' | undefined) : undefined} />
             </th>
-            <th onClick={() => handleSort('payments')}>
+            <th onClick={() => handleSort('payments')} style={{ cursor: 'pointer' }}>
               Опалаты <SortArrows sort={sortBy === 'payments' ? (sortDir as 'asc' | 'desc' | undefined) : undefined} />
             </th>
-            <th onClick={() => handleSort('income')}>
+            <th onClick={() => handleSort('income')} style={{ cursor: 'pointer' }}>
               Доход <SortArrows sort={sortBy === 'income' ? (sortDir as 'asc' | 'desc' | undefined) : undefined} />
             </th>
           </tr>

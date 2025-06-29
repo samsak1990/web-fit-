@@ -10,9 +10,9 @@ import styles from "./Payments.module.css";
 
 
 export type TRow = {
-    date: string, 
-    amount: number, 
-    status: string 
+    date: string,
+    amount: number,
+    status: string
 }
 
 
@@ -30,7 +30,7 @@ const testData: TRow[] = [
     { date: '2025-10-05', amount: 2000, status: 'Выполнено' },
     { date: '2025-11-11', amount: 1580, status: 'Ожидается' },
     { date: '2025-12-24', amount: 2150, status: 'Выполнено' },
-  ];
+];
 
 const Payments: React.FC = () => {
     return (
@@ -38,17 +38,17 @@ const Payments: React.FC = () => {
             <WrapperInnerContent>
                 <Block direction="column">
                     <BlockTitle title="Запрос выплаты" right={true} />
-                    <form action={()=>{}} className={styles.formPayments}>
-                        <Input placeholder="Банк" value="" setValue={()=>{}} error="" />
-                        <Input placeholder="Номер телефона" value="" setValue={()=>{}} error="" />
-                        <Input placeholder="ФИО" value="" setValue={()=>{}} error="" />
-                        <Input placeholder="Сумма" value="" setValue={()=>{}} error="" />
+                    <form action={() => { }} className={styles.formPayments}>
+                        <Input placeholder="Банк" value="" setValue={() => { }} error="" />
+                        <Input placeholder="Номер телефона" value="" setValue={() => { }} error="" />
+                        <Input placeholder="ФИО" value="" setValue={() => { }} error="" />
+                        <Input placeholder="Сумма" value="" setValue={() => { }} error="" />
                         <ButtonMain text="Запросить выплату" type="submit" />
                     </form>
                 </Block>
                 <Block direction="column">
-                    <BlockTitle title="Выплаты" right={true}/>
-                    <TablePayments data={testData}/>
+                    <BlockTitle title="Выплаты" right={true} />
+                    <TablePayments data={testData} />
                     <div className={styles.payments__pagination}></div>
                 </Block>
             </WrapperInnerContent>

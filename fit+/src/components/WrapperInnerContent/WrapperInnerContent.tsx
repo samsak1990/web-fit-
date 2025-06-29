@@ -3,11 +3,17 @@ import styles from './WrapperInnerContent.module.css'
 
 type Props = {
     children: React.ReactNode,
+    flexDirection?: 'row' | 'column',
 }
 
-const WrapperInnerContent = ({ children }: Props) => {
+const WrapperInnerContent = ({ children, flexDirection = 'column' }: Props) => {
     return (
-        <div className={styles.wrapperInnerContent}>{children}</div>
+        <div
+            className={styles.wrapperInnerContent}
+            style={{ flexDirection, display: 'flex' }}
+        >
+            {children}
+        </div>
     )
 }
 

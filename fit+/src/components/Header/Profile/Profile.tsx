@@ -3,6 +3,7 @@ import styles from './Profile.module.css';
 import NoAvatar from './components/NoAvatar/NoAvatar';
 import ProfileDropMenu from './components/ProfileDropMenu/ProfileDropMenu';
 import { DROP_MENU } from '../../../constants/profileDropMenuList';
+import ModalPayments from '../../ModalPayments/ModalPayments';
 
 type TProfileProps = {
   userName: string;
@@ -11,9 +12,17 @@ type TProfileProps = {
 
 const Profile: React.FC<TProfileProps> = ({ userName, avatar }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isPaymentsOpen, setIsPaymentsOpen] = useState(false);
   const profileRef = useRef<HTMLDivElement>(null);
 
   const handleToggleMenu = () => setIsOpen((prev) => !prev);
+
+  const handleMenuItemClick = (title: string) => {
+    if (title === 'Выплаты') {
+      setIsPaymentsOpen(true);
+      setIsOpen(false);
+    }
+  };
 
   useEffect(() => {
     if (!isOpen) return;
@@ -37,7 +46,8 @@ const Profile: React.FC<TProfileProps> = ({ userName, avatar }) => {
         aria-expanded={isOpen}
         aria-label="Открыть меню профиля"
       ></button>
-      <ProfileDropMenu navList={DROP_MENU} isOpen={isOpen} />
+      <ProfileDropMenu navList={DROP_MENU} isOpen={isOpen} onMenuItemClick={handleMenuItemClick} />
+      <ModalPayments isOpen={isPaymentsOpen} onClose={() => setIsPaymentsOpen(false)} />
     </div>
   );
 };
