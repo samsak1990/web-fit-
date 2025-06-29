@@ -97,3 +97,17 @@
 .input__info_closed {
   background-image: url('../../assets/validation-inform/eye.svg');
 }
+
+.input__info_star {
+  background-image: url('../../assets/validation-inform/info-circle-star.svg');
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+}
+
+.input_required {
+  border: 1.5px solid #ff4d4f;
+  background: #fff;
+}

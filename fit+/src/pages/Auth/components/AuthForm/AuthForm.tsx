@@ -45,6 +45,8 @@ const AuthForm: React.FC = () => {
     if (login === 'admin' && password === '1234') {
       navigate('/analitic');
     } else {
+      setLoginError('invalid');
+      setPasswordError('invalid');
       setFormError('Неверный логин или пароль');
     }
     setLoading(false);
@@ -53,12 +55,12 @@ const AuthForm: React.FC = () => {
   return (
     <div className={styles.wrapperAuthForm}>
       <Logo image={LogoImage} />
-      <form onSubmit={handlerAuthorisation} className={styles.authForm}>
+      <form onSubmit={handlerAuthorisation} className={styles.authForm} style={{ position: 'relative' }}>
         <WrapperInput>
-          <Input placeholder="Логин" value={login} setValue={setLogin} error={loginError} noStyle={true} />
+          <Input placeholder="Логин" value={login} setValue={setLogin} error={loginError === 'Введите логин' ? loginError : ''} noStyle={true} invalid={loginError === 'invalid'} />
         </WrapperInput>
         <WrapperInput>
-          <Input placeholder="Пароль" value={password} setValue={setPassword} secret={true} error={passwordError} noStyle={true} />
+          <Input placeholder="Пароль" value={password} setValue={setPassword} secret={true} error={passwordError === 'Введите пароль' ? passwordError : ''} noStyle={true} invalid={passwordError === 'invalid'} />
         </WrapperInput>
         <WrapperInput>
           <CustomCheckbox
@@ -67,8 +69,11 @@ const AuthForm: React.FC = () => {
             onChange={() => setRememberMe((prev) => !prev)}
           />
         </WrapperInput>
-        {formError && <div className={styles.formError}>{formError}</div>}
         <ButtonMain text={loading ? 'Вход...' : 'Войти'} type="submit" disabled={loading} />
+        {/* Общая подсказка справа при неверных данных */}
+        {formError && login && password && (
+          <div className={styles.inputErrorTooltip}>{formError}</div>
+        )}
       </form>
       <WrapperInput>
         <p className={styles.authForm__help}>

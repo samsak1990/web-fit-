@@ -8,44 +8,49 @@ type TInputProps = {
   error?: string;
   secret?: boolean;
   noStyle?: boolean;
+  invalid?: boolean;
 };
 
-const Input: React.FC<TInputProps> = ({ placeholder, value, setValue, error = "", secret = false, noStyle = false }) => {
-
-  const [open, setOpen] = React.useState<boolean>(false);
-
-  function updateOpen(): void {
-    if (error === "" && value !== "" && secret) {
-      setOpen(prev => !prev);
-    }
-  }
+const Input: React.FC<TInputProps> = ({ placeholder, value, setValue, error = "", secret = false, noStyle = false, invalid = false }) => {
 
   let type = "text";
 
-  if (secret && !open) {
+  if (secret) {
     type = "password";
   }
+
+  // Определяем тип ошибки
+  const isRequiredError = error === 'Введите логин' || error === 'Введите пароль';
+  const isInvalidError = invalid;
 
   return (
     <div className={styles.input__wrapper}>
       <input
-        className={styles.input + (error === "" ? "" : " " + styles.input_error) + (noStyle ? " " + styles.input_noStyle : "")}
+        className={
+          styles.input +
+          (isRequiredError ? ' ' + styles.input_required : '') +
+          (isInvalidError ? ' ' + styles.input_error : '') +
+          (noStyle ? ' ' + styles.input_noStyle : '')
+        }
         placeholder={placeholder}
         value={value}
         onChange={e => setValue(e.target.value)}
         type={type}
       />
+      {/* Звезда справа только для обязательного поля */}
+      {isRequiredError && !isInvalidError && (
+        <div className={styles.input__info + ' ' + styles.input__info_star}></div>
+      )}
+      {/* Круг с восклицательным знаком только для неверного ввода */}
+      {isInvalidError && !isRequiredError && (
+        <div className={styles.input__info + ' ' + styles.input__info_warning}></div>
+      )}
+      {/* Текст ошибки справа только для обязательного поля */}
       <div className={
-        styles.input__info +
-        ((error !== "" && value !== "") ? " " + styles.input__info_error : "") +
-        ((error !== "" && value === "") ? " " + styles.input__info_warning : "") +
-        ((error === "" && value !== "" && secret && open) ? " " + styles.input__info_open : "") +
-        ((error === "" && value !== "" && secret && !open) ? " " + styles.input__info_closed : "")
-      }
-        onClick={updateOpen}
-      ></div>
-      <div className={styles.error + (error === "" ? "" : " " + styles.error_show)}>
-        {error}
+        styles.error +
+        (isRequiredError ? ' ' + styles.error_show : '')
+      }>
+        {isRequiredError ? error : ''}
       </div>
     </div>
   );
