@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import styles from './ProfileDropMenu.module.css'
 import { type IDropMenu } from '../../../../../constants/profileDropMenuList'
 import { NavLink, useNavigate } from 'react-router-dom'
@@ -24,7 +24,7 @@ export default function ProfileDropMenu({ navList, isOpen, onMenuItemClick }: Pr
                 }
                 if (item.title === 'Выход') {
                     return (
-                        <p className={styles.dropMenu__link} key={item.title} onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
+                        <p className={styles.dropMenu__link} key={item.title} onClick={() => navigate(item.path)} style={{ cursor: 'pointer' }}>
                             <img src={item.icon} alt="Иконка" />
                             <span>{item.title}</span>
                         </p>

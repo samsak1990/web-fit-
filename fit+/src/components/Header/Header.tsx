@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import styles from './Header.module.css';
 import WrapperInnerContent from '../WrapperInnerContent/WrapperInnerContent';
 import Profile from './Profile/Profile';

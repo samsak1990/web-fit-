@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import styles from './Pagination.module.css';
 import ArrowLeftDouble from '../../../../assets/arrows-control/arrow-left-double.svg';
 import ArrowLeft from '../../../../assets/arrows-control/arrow-left.svg';

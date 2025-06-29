@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+// import React, { useState } from 'react';
 import styles from './Checkbox.module.css';
 
 type CheckboxProps = {

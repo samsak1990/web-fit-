@@ -7,5 +7,5 @@ export interface IDropMenu { title: string, path: string, icon: string }
 export const DROP_MENU: IDropMenu[] = [
     { title: 'Выплаты', path: '/', icon: Icon_dollar },
     { title: 'Тех. поддержка', path: '/', icon: Icon_help },
-    { title: 'Выход', path: '/', icon: Icon_login },
+    { title: 'Выход', path: '/auth', icon: Icon_login },
 ]

@@ -1,3 +1,4 @@
+// import React from 'react';
 import styles from './WrapperContent.module.css';
 
 type TWrapperContentProps = {

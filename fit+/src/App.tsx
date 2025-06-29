@@ -14,9 +14,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Auth />} />
+        <Route path="/auth" element={<Auth />} />
         <Route path="/" element={<Main />}>
-          <Route index path="analitic" element={<Analitic />} />
+          <Route index element={<Navigate to="analitic" replace />} />
+          <Route path="analitic" element={<Analitic />} />
           {/* <Route path="payments" element={<Payments />} /> */}
         </Route>
         <Route path="*" element={<Navigate to="/auth" replace />} />
