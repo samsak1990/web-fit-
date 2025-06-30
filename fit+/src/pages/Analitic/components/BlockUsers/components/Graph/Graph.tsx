@@ -67,8 +67,8 @@ const Graph: React.FC<GraphProps> = ({ data }) => {
           <Tooltip content={<CustomTooltip />} cursor={false} />
           <Bar
             dataKey="value"
-            shape={(props) => (
-              <CustomBarShape {...props} activeIndex={activeIndex} />
+            shape={(data: any) => (
+              <CustomBarShape {...data} activeIndex={activeIndex} />
             )}
             barSize={BAR_SIZE}
             isAnimationActive={false}

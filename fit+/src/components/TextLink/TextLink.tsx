@@ -10,7 +10,9 @@ const TextLink: React.FC<TTextLinkProps> = ({ text }) => {
 
   return (
     <span className={`${styles.textLink} ${isActive ? styles.inactive : null}`}>
-      <a href="#">{text}</a>
+      <a href="#" onClick={() => setIsActive}>
+        {text}
+      </a>
     </span>
   );
 };
