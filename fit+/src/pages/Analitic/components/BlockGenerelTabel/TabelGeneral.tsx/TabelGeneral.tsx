@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import styles from './TabelGeneral.module.css';
-import SortArrows from '../../../../../pages/Payments/components/TablePayments/SortArrows/SortArrows';
+import SortArrows from '../../../../../components/SortArrows/SortArrows';
 
 type TGeneralRow = {
   id: string;
@@ -11,7 +11,14 @@ type TGeneralRow = {
   income: string;
 };
 
-type SortBy = 'id' | 'name' | 'loginDate' | 'paymentDate' | 'payments' | 'income' | null;
+type SortBy =
+  | 'id'
+  | 'name'
+  | 'loginDate'
+  | 'paymentDate'
+  | 'payments'
+  | 'income'
+  | null;
 type SortDir = 'asc' | 'desc' | null;
 
 type TTabelGeneralProps = {
@@ -57,23 +64,47 @@ const TabelGeneral: React.FC<TTabelGeneralProps> = ({ data }) => {
       <table className={styles.tableGeneral}>
         <thead>
           <tr>
-            <th>
-              ID
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Дата входа</th>
+            <th
+              onClick={() => handleSort('paymentDate')}
+              style={{ cursor: 'pointer' }}
+            >
+              Дата оплаты{' '}
+              <SortArrows
+                sort={
+                  sortBy === 'paymentDate'
+                    ? (sortDir as 'asc' | 'desc' | undefined)
+                    : undefined
+                }
+              />
             </th>
-            <th>
-              Имя
+            <th
+              onClick={() => handleSort('payments')}
+              style={{ cursor: 'pointer' }}
+            >
+              Опалаты{' '}
+              <SortArrows
+                sort={
+                  sortBy === 'payments'
+                    ? (sortDir as 'asc' | 'desc' | undefined)
+                    : undefined
+                }
+              />
             </th>
-            <th>
-              Дата входа
-            </th>
-            <th onClick={() => handleSort('paymentDate')} style={{ cursor: 'pointer' }}>
-              Дата оплаты <SortArrows sort={sortBy === 'paymentDate' ? (sortDir as 'asc' | 'desc' | undefined) : undefined} />
-            </th>
-            <th onClick={() => handleSort('payments')} style={{ cursor: 'pointer' }}>
-              Опалаты <SortArrows sort={sortBy === 'payments' ? (sortDir as 'asc' | 'desc' | undefined) : undefined} />
-            </th>
-            <th onClick={() => handleSort('income')} style={{ cursor: 'pointer' }}>
-              Доход <SortArrows sort={sortBy === 'income' ? (sortDir as 'asc' | 'desc' | undefined) : undefined} />
+            <th
+              onClick={() => handleSort('income')}
+              style={{ cursor: 'pointer' }}
+            >
+              Доход{' '}
+              <SortArrows
+                sort={
+                  sortBy === 'income'
+                    ? (sortDir as 'asc' | 'desc' | undefined)
+                    : undefined
+                }
+              />
             </th>
           </tr>
         </thead>
